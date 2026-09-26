@@ -126,3 +126,12 @@ Public deployment URL used during testing: `http://32.198.44.31:8080/hello?name=
 | ![Concurrent requests including shutdown route](docs/image%20copy%209.png) | A request to `/shutdown` and a concurrent request to `/hello` are both served independently. |
 | ![Graceful shutdown on EC2](docs/image%20copy%2010.png) | With `APP_ENV=development`, `/shutdown` triggers the graceful shutdown path (`"The server will shutdown after this response"`), while a concurrent `/hello` request still completes. |
 
+## Demo video
+
+[Local Docker deployment and AWS EC2 deployment working](https://youtu.be/6nlaCsueN-4)
+
+## Known limitations / possible next steps
+
+- `Router` uses a plain `HashMap`, which is safe because routes are only registered before `start()` (single-threaded phase). Registering routes after the server starts would require a `ConcurrentHashMap`.
+- No HTTPS/TLS termination — the workshop scope only covers plain HTTP.
+- No structured logging or metrics.
