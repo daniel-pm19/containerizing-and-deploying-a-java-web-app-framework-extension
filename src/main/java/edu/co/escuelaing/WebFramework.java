@@ -11,8 +11,8 @@ public class WebFramework {
         router.add(route, ws);
     }
 
-    public void start(int port) throws IOException {
-        httpServer.start(port);
+    public void start() throws IOException {
+        httpServer.start();
     }
 
     public void stop() {

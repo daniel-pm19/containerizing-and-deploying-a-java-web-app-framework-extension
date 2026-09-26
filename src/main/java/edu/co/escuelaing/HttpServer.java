@@ -22,7 +22,7 @@ public class HttpServer {
         this.router = router;
     }
 
-    public void start(int port) throws IOException {
+    public void start() throws IOException {
         String portValue = System.getenv().getOrDefault("PORT", "8080");
         String poolSizeValue = System.getenv().getOrDefault("THREAD_POOL_SIZE", "10");
 

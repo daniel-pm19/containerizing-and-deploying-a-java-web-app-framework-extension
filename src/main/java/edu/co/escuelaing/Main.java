@@ -1,5 +1,7 @@
 package edu.co.escuelaing;
 
+import java.io.IOException;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -28,5 +30,11 @@ public class Main {
             resp.setStatus(405);
             return "Not Allowed Operation";
         });
+
+        try {
+            webFramework.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
